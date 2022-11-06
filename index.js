@@ -39,6 +39,7 @@ void send_event(const char *event)
 */
 
 const thebutton = document.getElementById("thebutton");
+const log = document.getElementById("log");
 
 thebutton.addEventListener('click', () => {
 
@@ -55,6 +56,9 @@ thebutton.addEventListener('click', () => {
         method: 'POST'
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        log.innerText = data;
+      });
 
 })
